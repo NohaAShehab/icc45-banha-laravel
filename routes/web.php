@@ -84,7 +84,7 @@ Route::get("/users", function () {
 //    return $persons;
     # you can send this array to the template
     $name = 'noha';
-    return view('users', ["users"=>$users, "name"=>$name]);
+    return view('users', ["users"=>$users, "name"=>$name, "num"=>5]);
 
 });
 

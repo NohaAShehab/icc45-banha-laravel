@@ -22,3 +22,12 @@ https://laravel.com/docs/11.x/routing#required-parameters
 https://laravel.com/docs/11.x/blade
 Blade template files use the .blade.php file extension and are typically stored in the resources/views directory.
 
+blade directives
+https://laravel.com/docs/11.x/blade#blade-directives
+
+# blade loops
+https://laravel.com/docs/11.x/blade#loops
+
+
+# template inheritance ??
+    you can define basic layouts --> and then use it in other pages
