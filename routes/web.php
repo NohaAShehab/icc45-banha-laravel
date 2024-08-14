@@ -90,7 +90,10 @@ Route::get("/users", function () {
 
 
 
+Route::get('/home', function (){
 
+    return view('home');
+});
 
 
 

@@ -31,3 +31,4 @@ https://laravel.com/docs/11.x/blade#loops
 
 # template inheritance ??
     you can define basic layouts --> and then use it in other pages
+    https://laravel.com/docs/11.x/blade#layouts-using-template-inheritance
