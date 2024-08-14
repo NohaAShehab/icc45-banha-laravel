@@ -29,6 +29,10 @@ https://laravel.com/docs/11.x/blade#blade-directives
 https://laravel.com/docs/11.x/blade#loops
 
 
-# template inheritance ??
+# template inheritance ?? with .blade.php files
     you can define basic layouts --> and then use it in other pages
     https://laravel.com/docs/11.x/blade#layouts-using-template-inheritance
+
+
+# use controller
+php artisan make:controller StudentController

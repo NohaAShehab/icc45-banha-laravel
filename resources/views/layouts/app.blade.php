@@ -15,7 +15,11 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Users</a>
+                    <a class="nav-link active" aria-current="page" href="/users">Users</a>
+                </li>
+                <li class="nav-item">
+{{--                    <a class="nav-link active" aria-current="page" href="/students">Students</a>--}}
+                    <a class="nav-link active" aria-current="page" href="{{route('students.index')}}">Students</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
@@ -26,10 +30,13 @@
     </div>
 </nav>
 <div class="container text-danger fw-bold">
-    @yield('main')
+    @yield('basic')
 </div>
 <div style=" background-color: aqua" class="container">
     @yield('body')
+</div>
+<div class="container">
+    @yield('main')
 </div>
 
 
