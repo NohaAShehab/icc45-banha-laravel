@@ -1,0 +1,24 @@
+************** Day01 content &******************
+Design pattern
+https://refactoring.guru/design-patterns
+
+
+
+1- install laravel
+
+2- laravel provide command line tool --> artisan --> run it using php
+helps me to apply adminstrative tasks on the project
+
+
+
+2-Routing
+https://laravel.com/docs/11.x/routing
+
+# url params
+https://laravel.com/docs/11.x/routing#required-parameters
+
+
+#### laravel blades
+https://laravel.com/docs/11.x/blade
+Blade template files use the .blade.php file extension and are typically stored in the resources/views directory.
+
