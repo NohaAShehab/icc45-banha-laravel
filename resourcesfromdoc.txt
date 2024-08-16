@@ -69,7 +69,30 @@ host , username, password , port , database name
 
   info about these table
 
+  **** create table students (id , name, email, grade, image, gender)
+  I need to ask laravel to create this table
 
+we will use migration files
+    1- know db structrure
+    2- acts like ? versioning control for the db arch.
+    all changes you apply to the db structure will be reflected into migration
+    then you can share db arch. with team
+    you control which files neeeded to be run / rollback
+
+
+
+# I need to create migration files (make)
+
+# table_name ===> students
+php artisan make:migration create_students_table
+
+https://laravel.com/docs/11.x/migrations
+
+create tables
+https://laravel.com/docs/11.x/migrations#creating-tables
+
+available cols datatypes
+https://laravel.com/docs/11.x/migrations#columns
 
 
 
