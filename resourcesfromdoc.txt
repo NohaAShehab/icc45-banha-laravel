@@ -43,3 +43,7 @@ lab01
 3- All Posts in navbae is a link that redirect back to /posts route
     --> hint use route()
 4- Use blade layout to not duplicate navbar across view ﬁles
+
+############################# Day02 #####################
+1- load images from server
+# add your static images to folder public

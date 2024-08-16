@@ -13,7 +13,9 @@
                 <td>{{$std['id']}}</td>
                 <td>{{$std['name']}}</td>
                 <td>{{$std['email']}}</td>
-                <td>{{$std['image']}}</td>
+{{--                <td>{{$std['image']}}</td>--}}
+                <td> <img src="{{asset('images/students/'.$std['image'])}}"
+                    width="200" height="200"> </td>
                 <td> <a href="{{route('students.show', $std['id'])}}" class="btn btn-primary"> Show </a></td>
             </tr>
 
