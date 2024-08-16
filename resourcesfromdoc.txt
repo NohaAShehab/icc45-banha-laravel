@@ -97,4 +97,31 @@ https://laravel.com/docs/11.x/migrations#columns
 take in consideration that when you create table using migration files in laravel default of
 columns are not null unless you say something else
 
+#### crud operations
+    create
+    edit
+    delete
+    update student
 
+
+## use query builder
+https://laravel.com/docs/11.x/queries#select-statements
+
+
+use models : https://laravel.com/docs/11.x/eloquent
+
+generate model
+--> table --> students  ---> Model name Student
+
+*** select all objects
+https://laravel.com/docs/11.x/eloquent#retrieving-models
+
+***** select one object
+https://laravel.com/docs/11.x/eloquent#retrieving-single-models
+
+*** delete object
+https://laravel.com/docs/11.x/eloquent#deleting-models
+
+*** create object
+https://laravel.com/docs/11.x/csrf#main-content
+https://en.wikipedia.org/wiki/Cross-site_request_forgery

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Models\Student;
+
 
 class StudentController extends Controller
 {
@@ -15,16 +18,95 @@ class StudentController extends Controller
     ];
 
     function index (){
-//       return $this->students;
-        return view('students.index', ['students'=>$this->students]);
+
+        # direct connect to the database using query builder
+//        $students = DB::table('students')->get();
+//        dd($students[0]);
+//        return $students;
+
+        # *** use model class
+        $students = Student::all();
+//        dd($students); # print details of var then stop exexution
+
+            # collection of model objects
+        return view('students.index', ['students'=>$students]);
     }
 
     function show($id){
-        foreach($this->students as $student){
-            if($student['id'] == $id){
-                return view('students.show', ['student'=>$student]);
-            }
-        }
-        return view('notfound');
+//        foreach($this->students as $student){
+//            if($student['id'] == $id){
+//                return view('students.show', ['student'=>$student]);
+//            }
+//        }
+//        return view('notfound');
+//        $student = Student::find($id); # accept id
+//        if($student) {
+//            return view('students.show', ['student' => $student]);  # I am send model object\
+//        }
+//        else {
+//            return view('notfound');
+//        }
+        $student = Student::findorfail($id); # accept id if exists return object if not return 404 not found
+        return view('students.show', ['student' => $student]);  # I am send model object\
+    }
+
+    function destroy($id){
+        # 1- get object
+        $student = Student::find($id);
+        $student->delete();
+//
+        #2- destroy
+        $student->delete();
+        return to_route('students.index');
+        // return 'removed';
+    }
+
+
+    function create(){
+        return view('students.create');
+    }
+
+    function store()
+    {
+//        dump($_POST);
+        $data = request()->all();
+//        dump($data);
+        $name = $data['name'];
+        $email = $data['email'];
+        $image = $data['image'];
+        $gender = $data['gender'];
+        $grade = $data['grade'];
+        ### use this data to create object
+        $student = new Student();
+        $student->name= $name;
+        $student->email= $email;
+        $student->image= $image;
+        $student->grade= $grade;
+        $student->gender= $gender;
+        $student->save();
+
+//        return "Data received";
+        return to_route('students.index');
+    }
+
+    function edit($id){
+        // return view of edit
+        $student = Student::findOrfail($id);
+        return view('students.edit', ['student' => $student]);
+    }
+
+    function update($id){
+        $student = Student::findOrfail($id);
+
+        $data = request()->all();
+//        dump($data);
+        $name = $data['name'];
+        $email = $data['email'];
+        $image = $data['image'];
+        $gender = $data['gender'];
+        $grade = $data['grade'];
+
+        #### use $student object --> to save data to it.
     }
 }
+
