@@ -47,3 +47,29 @@ lab01
 ############################# Day02 #####################
 1- load images from server
 # add your static images to folder public
+
+##################### Day03 ############################
+from laravel 11
+laravel project included with it sql-lite db files
+
+# use mysql --> with our project --> hide details --> project can deal with
+different databases.
+
+host , username, password , port , database name
+
+#### .env file
+
+
+
+### laravel project --> has default parts
+---> users table --> ready --> use register/ login implementation
+ --> allow for sessions between webpages
+ --> tables for common actions --> ready and added to the db
+    --> sessions
+
+  info about these table
+
+
+
+
+
