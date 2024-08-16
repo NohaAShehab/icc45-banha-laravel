@@ -94,5 +94,7 @@ https://laravel.com/docs/11.x/migrations#creating-tables
 available cols datatypes
 https://laravel.com/docs/11.x/migrations#columns
 
+take in consideration that when you create table using migration files in laravel default of
+columns are not null unless you say something else
 
 

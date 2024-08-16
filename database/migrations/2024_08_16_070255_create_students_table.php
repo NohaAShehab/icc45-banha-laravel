@@ -15,10 +15,10 @@ return new class extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->id();  # pk of the table
             $table->string('name', length: 100);
-            $table->string('email', length: 200);
-            $table->float('grade');
-            $table->string('image', length: 100);
-            $table->enum('gender', ['male', 'female'])->default('male');
+            $table->string('email', length: 200)->nullable()->unique();
+            $table->float('grade')->nullable();
+            $table->string('image', length: 100)->nullable();
+            $table->enum('gender', ['male', 'female'])->default('male')->nullable();
             $table->timestamps();  # create_at , updated_fields
 
         });
