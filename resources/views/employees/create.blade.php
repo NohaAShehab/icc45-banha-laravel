@@ -31,7 +31,7 @@
         </div>
         <div class="mb-3">
             <label  class="form-label">Image</label>
-            <input type="text" name="image" value="{{ old('image') }}"
+            <input type="file" name="image" value="{{ old('image') }}"
                    class="form-control"  aria-describedby="emailHelp">
         </div>
         <div class="mb-3">

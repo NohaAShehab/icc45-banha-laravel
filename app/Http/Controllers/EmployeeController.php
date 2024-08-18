@@ -34,9 +34,7 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
-//        dd($request->all());
-        # to validate request values
+//        dd($request->hasFile('image'));
         $request->validate([
             'name' => 'required',
             'email' => 'required|unique:employees',
@@ -44,7 +42,21 @@ class EmployeeController extends Controller
             'gender' => 'required',
         ]);
 
+
+        $image_path=null;
+
+        ### save image
+        if($request->hasFile('image')){
+            $image = $request->file('image');
+            ## save file to storage
+            # define storage ??
+            $image_path =$image->store('images','employees_upload');
+
+        }
+
         $employee = Employee::create($request->all());
+        $employee->image = $image_path;
+        $employee->save();
 //        return to_route('employees.index')->with('success', 'Employee has been created');
         return to_route('employees.show', $employee);
 
