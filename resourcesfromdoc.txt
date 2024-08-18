@@ -125,3 +125,58 @@ https://laravel.com/docs/11.x/eloquent#deleting-models
 *** create object
 https://laravel.com/docs/11.x/csrf#main-content
 https://en.wikipedia.org/wiki/Cross-site_request_forgery
+
+###################################################################
+
+
+to create users 000> use factory// seeders to create 10 users
+
+1-We will make CRUD operation on Posts
+2- When submitting a form make sure to redirect back to /posts
+   route ()
+
+
+
+##################################### Day03 ######################################33
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
+1- use http request methods
+    /students  --> get
+    /students - --> post new student
+    / students/create --> get
+    /students/id  --> show
+    /students/id/edit ---> get
+    /students/id/update  ---> post  replace with put
+    /students/id/delete  --> get  --> delete replace with delete
+
+    html form knows only get and post methods
+    form inside form --> change method
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
