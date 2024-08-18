@@ -208,6 +208,9 @@ generate all needed files for the new model department
 
 
 
+--> on model level
+    --> define relation ???
+
 
 
 

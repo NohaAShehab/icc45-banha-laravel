@@ -15,4 +15,9 @@ class Employee extends Model
     # by default laravel consider table name by default employees
     # you specify table name explicitly in model class.
 //    protected $table='employees';
+
+    function department(){
+        # this emp belongs to one dept ???
+        return $this->belongsTo(Department::class);
+    }
 }
