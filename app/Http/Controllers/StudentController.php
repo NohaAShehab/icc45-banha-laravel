@@ -68,9 +68,25 @@ class StudentController extends Controller
 
     function store()
     {
-//        dump($_POST);
+        # you need to have validation on form ??
+        # define validation rules and customize error messsage
+        request()->validate([
+            'name' => 'required|min:3',
+            'gender' => 'required',
+            'email' => 'required|email|unique:App\Models\Student,email'
+
+        ], [
+            'name.required' => 'Student name is required.',
+            'name.min' => 'Student name must be at least 3 characters.',
+            'gender.required' => 'No student without gender.',
+            'email.required' => 'Student email is required.',
+            'email.email' => 'Student email must be a valid email.',
+            'email.unique' => 'there is another student with the same email'
+        ] // messages
+        );
+
+//        dd(request()->all());
         $data = request()->all();
-//        dump($data);
         $name = $data['name'];
         $email = $data['email'];
         $image = $data['image'];

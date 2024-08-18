@@ -152,6 +152,13 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
     form inside form --> change method
 
 
+***************2- validate form inputs
+
+https://laravel.com/docs/11.x/validation#main-content
+
+validation rules
+
+https://laravel.com/docs/11.x/validation#available-validation-rules
 
 
 
