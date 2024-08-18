@@ -53,7 +53,6 @@ class StudentController extends Controller
     function destroy($id){
         # 1- get object
         $student = Student::find($id);
-        $student->delete();
 //
         #2- destroy
         $student->delete();

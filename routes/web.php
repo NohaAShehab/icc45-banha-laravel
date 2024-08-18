@@ -100,15 +100,19 @@ Route::get('/home', function (){
 use App\Http\Controllers\StudentController;
                             # scope binding
 Route::get("/students",[StudentController::class,'index' ])->name('students.index');
+Route::post("/students",[StudentController::class, 'store'] )->name('students.store');
+Route::get('/students/create', [StudentController::class,'create'])->name('students.create');
 Route::get('/students/{id}', [StudentController::class, 'show'])
     ->name("students.show")->where('id', '[0-9]+');
-//Route::get("/students/{id}/destroy", [StudentController::class, 'destroy'])
-//    ->name('students.destroy')->where('id', '[0-9]+');
-Route::get('/students/create', [StudentController::class,'create'])->name('students.create');
-Route::post("/students/create",[StudentController::class, 'store'] )->name('students.store');
+Route::get("/students/{id}/edit", [StudentController::class, 'edit'])
+    ->name('students.edit')->where('id', '[0-9]+');
 
 Route::delete("/students/{id}", [StudentController::class, 'destroy'])
     ->name('students.destroy')->where('id', '[0-9]+');
+
+
+use App\Http\Controllers\EmployeeController;
+Route::resource('employees', EmployeeController::class);
 
 
 

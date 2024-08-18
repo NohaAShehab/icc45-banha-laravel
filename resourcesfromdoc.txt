@@ -160,8 +160,34 @@ validation rules
 
 https://laravel.com/docs/11.x/validation#available-validation-rules
 
+********************** 3- resource controller
+### laravel introduce  Resource controller
+--> Employee =>id , name, email, image, gender , salary
+1- generate migration files
+2- create model
+3- create controller
+    php artisan make:controller EmployeeController --model=Employee
+    create resource controller based on specific
+        --> create , edit , index, show, update, destroy , store
+
+4- if you are using resource controller then you can generate routes in one line ??
+    Route::resource('/employees', EmployeeController::class];
+
+5- to display all routes in app.
+    php artisan route:list
+
+method          url                                     route names       controller function
+GET|HEAD        employees ............................. employees.index › EmployeeController@index
+  POST            employees ........................... employees.store › EmployeeController@store
+  GET|HEAD        employees/create ................... employees.create › EmployeeController@create
+  GET|HEAD        employees/{employee} ................ employees.show › EmployeeController@show
+  PUT|PATCH       employees/{employee} ............. employees.update › EmployeeController@update
+  DELETE          employees/{employee} ............... employees.destroy › EmployeeController@destroy
+  GET|HEAD        employees/{employee}/edit ................ employees.edit › EmployeeController@edit
 
 
+###### let's create 10 employees as dummy data
+use factories --> generate fake data for test
 
 
 
