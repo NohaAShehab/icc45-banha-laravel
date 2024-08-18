@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use App\Models\Employee;
+use App\Models\Department;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -21,6 +22,7 @@ class DatabaseSeeder extends Seeder
 //            'email' => 'test@example.com',
 //        ]);
 
-        Employee::factory(10)->create();
+//        Employee::factory(10)->create();
+        Department::factory(10)->create();
     }
 }

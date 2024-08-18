@@ -113,7 +113,8 @@ Route::delete("/students/{id}", [StudentController::class, 'destroy'])
 
 use App\Http\Controllers\EmployeeController;
 Route::resource('employees', EmployeeController::class);
-
+use App\Http\Controllers\DepartmentController;
+Route::resource('departments', DepartmentController::class);
 
 
 

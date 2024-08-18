@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employee;
+use App\Models\Department;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
@@ -13,6 +14,7 @@ class EmployeeController extends Controller
     public function index()
     {
         //
+
         $employees = Employee::all();
         return view('employees.index', compact('employees'));
     }
@@ -23,7 +25,8 @@ class EmployeeController extends Controller
     public function create()
     {
         //
-        return view('employees.create');
+        $departments = Department::all();
+        return view('employees.create', compact('departments'));
     }
 
     /**
@@ -41,9 +44,6 @@ class EmployeeController extends Controller
             'gender' => 'required',
         ]);
 
-//        dd($request->all());
-
-        # store object
         $employee = Employee::create($request->all());
 //        return to_route('employees.index')->with('success', 'Employee has been created');
         return to_route('employees.show', $employee);

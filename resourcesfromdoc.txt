@@ -191,8 +191,20 @@ use factories --> generate fake data for test
 
 
 #*********** use mass assignment in saving, getting object
+hint use fillable property
+https://laravel.com/docs/11.x/eloquent#mass-assignment
 
 
+*********************** relation between models
+--> dept --> emp -->each employee works only one dept
+dept has many emps
+
+generate all needed files for the new model department
+
+########## connect emp with dept
+--> on db level
+    --> I need migration file
+    php artisan make:migration add_department_id_to_employees_table
 
 
 
