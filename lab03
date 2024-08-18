@@ -1,5 +1,5 @@
 modify the previous forms to
-Add validation using form request files on Store & Update
+Add validation using form request fields on Store & Update
 https://laravel.com/docs/master/validation#creating-form-r
 equests
 - Title & description are required , minimum length for title is 3
