@@ -23,6 +23,7 @@ class EmployeeController extends Controller
     public function create()
     {
         //
+        return view('employees.create');
     }
 
     /**
@@ -31,6 +32,24 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
         //
+//        dd($request->all());
+        # to validate request values
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|unique:employees',
+            'salary' => 'required',
+            'gender' => 'required',
+        ]);
+
+//        dd($request->all());
+
+        # store object
+        $employee = Employee::create($request->all());
+//        return to_route('employees.index')->with('success', 'Employee has been created');
+        return to_route('employees.show', $employee);
+
+
+
     }
 
     /**

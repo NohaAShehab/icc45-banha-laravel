@@ -190,8 +190,7 @@ GET|HEAD        employees ............................. employees.index › Empl
 use factories --> generate fake data for test
 
 
-
-
+#*********** use mass assignment in saving, getting object
 
 
 
