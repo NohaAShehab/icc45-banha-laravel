@@ -4,9 +4,8 @@
    Student
 @endsection
 
-@section('main')
-{{--    @dump($student)--}}
-{{--@dd($student)--}}
+@section('content')
+
     <div class="card" style="width: 18rem;">
         <img src="{{asset('images/students/'.$student->image)}}" class="card-img-top" alt="...">
         <div class="card-body">

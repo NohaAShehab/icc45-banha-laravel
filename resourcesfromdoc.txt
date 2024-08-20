@@ -244,6 +244,11 @@ authentication ?? --> user is authenticated --> username, password
 # registeration and login
 # install package allow this functionality
 
+we will use package laravel/ui
+
+
+laravel ui --> generate server for the frontend
+
 
 
 

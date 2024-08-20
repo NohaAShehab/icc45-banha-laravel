@@ -4,7 +4,7 @@
     All managers
 @endsection
 
-@section('main')
+@section('content')
     <h1> Add new manager </h1>
 
 

@@ -4,7 +4,7 @@
     All Students
 @endsection
 
-@section('main')
+@section('content')
     <h1> Add new Student </h1>
 
     <form action="{{route('students.store')}}" method="post" enctype="multipart/form-data">

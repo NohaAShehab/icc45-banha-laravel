@@ -4,7 +4,7 @@
     All departments
 @endsection
 
-@section('main')
+@section('content')
     <a href="{{route('departments.create')}}" class="btn btn-primary">Add new department </a>
     <table class="table">
         <tr> <th>ID</th> <th>Name</th> <th>Description</th>  <th> Show</th>

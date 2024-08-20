@@ -4,7 +4,7 @@
    manager
 @endsection
 
-@section('main')
+@section('content')
 
     <div class="card" style="width: 18rem;">
         <img src="{{asset('images/managers/'.$manager->image)}}" class="card-img-top" alt="...">

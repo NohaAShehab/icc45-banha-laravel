@@ -4,7 +4,7 @@
     All managers
 @endsection
 
-@section('main')
+@section('content')
     <a href="{{route('managers.create')}}" class="btn btn-primary">Add new manager </a>
     <table class="table">
         <tr> <th>ID</th> <th>Name</th> <th>Email</th> <th>Image</th> <th> Show</th>

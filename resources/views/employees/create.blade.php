@@ -4,7 +4,7 @@
     All employees
 @endsection
 
-@section('main')
+@section('content')
     <h1> Add new employee </h1>
 
 

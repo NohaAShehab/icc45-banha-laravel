@@ -4,7 +4,7 @@
     All Students
 @endsection
 
-@section('main')
+@section('content')
     <a href="{{route('students.create')}}" class="btn btn-primary">Add new Student </a>
     <table class="table">
         <tr> <th>ID</th> <th>Name</th> <th>Email</th> <th>Image</th> <th> Show</th>

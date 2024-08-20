@@ -4,7 +4,7 @@
     All managers
 @endsection
 
-@section('main')
+@section('content')
 
     <h1> Edit manager </h1>
     @if ($errors->any())
