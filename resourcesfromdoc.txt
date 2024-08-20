@@ -233,11 +233,10 @@ php artisan make:model Manager -mcr
 --> make request class for ?? store , update
 php artisan make:request StoreManagerRequest
 
+# define new rule --> not in laravel
 
-
-
-# define new rule
-
+= restrict managers names not be manager , boss , hero,
+https://laravel.com/docs/11.x/validation#using-rule-objects
 
 
 

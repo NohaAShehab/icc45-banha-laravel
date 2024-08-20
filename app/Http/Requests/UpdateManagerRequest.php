@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Rules\ValidNames;
+use Illuminate\Validation\Rule;
 
-class StoreManagerRequest extends FormRequest
+class UpdateManagerRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,27 +22,13 @@ class StoreManagerRequest extends FormRequest
      */
     public function rules(): array
     {
-        # define validation rules ?
         return [
-            // # this
-            'name'=>[
-                'required',
-                'min:3',
-                new ValidNames(),
-
-            ],
-            'email'=>'required|unique:managers,email',
+            //
+            'name'=>'required|min:3',
+            'email'=> Rule::unique('managers')->ignore($this->manager),
             'image'=>'mimes:jpeg,jpg,png,gif',
             'gender'=>'required',
             'salary'=>'required|numeric|min:1000',
-        ];
-    }
-
-    # cutomize message
-    function  messages(): array
-    {
-        return [
-          'name.required'=>"no manager without name"
         ];
     }
 }

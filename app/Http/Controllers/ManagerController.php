@@ -6,6 +6,7 @@ use App\Models\Manager;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
 use App\Http\Requests\StoreManagerRequest;
+use App\Http\Requests\UpdateManagerRequest;
 
 class ManagerController extends Controller
 {
@@ -32,9 +33,11 @@ class ManagerController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreManagerRequest $request)
+    public function store(StoreManagerRequest $request) # object from storemanagerrequest
     {
         //
+
+
         $image_path=null;
         if($request->file('image')){
             $image = $request->file('image');
@@ -62,14 +65,16 @@ class ManagerController extends Controller
     public function edit(Manager $manager)
     {
         //
+        return view('managers.edit', compact('manager'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Manager $manager)
+    public function update(UpdateManagerRequest $request, Manager $manager)
     {
         //
+        dump($request->all());
     }
 
     /**
