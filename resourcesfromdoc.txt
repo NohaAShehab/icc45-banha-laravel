@@ -212,14 +212,17 @@ generate all needed files for the new model department
     --> define relation ???
 
 
+#######################################
+
+why we used resource controller ?
+1- generate basic function for crud operation on resource
+2- generate basic routes
+3- automatically detect resource object and deals with it
 
 
-
-
-
-
-
-
+####################################### Requests in laravel
+all operations on the request will be seperated in another file --->
+ associated with request .. update, store
 
 
 

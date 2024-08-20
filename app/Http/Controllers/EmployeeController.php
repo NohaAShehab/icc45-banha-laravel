@@ -6,6 +6,7 @@ use App\Models\Employee;
 use App\Models\Department;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Validation\Rule;
 
 class EmployeeController extends Controller
 {
@@ -34,7 +35,6 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request->hasFile('image'));
         $request->validate([
             'name' => 'required',
             'email' => 'required|unique:employees',
@@ -79,6 +79,8 @@ class EmployeeController extends Controller
     public function edit(Employee $employee)
     {
         //
+        $departments = Department::all();
+        return view('employees.edit', compact('employee', 'departments'));
     }
 
     /**
@@ -87,6 +89,25 @@ class EmployeeController extends Controller
     public function update(Request $request, Employee $employee)
     {
         //
+        $request->validate([
+            'name' => 'required',
+//            'email' => 'required|unique:employees'.$employee->id,
+            'email'=>['required',Rule::unique('employees')->ignore($employee->id)],
+            'salary' => 'required',
+            'gender' => 'required',
+            'image' => 'mimes:jpg,bmp,png'
+        ]);
+//        return "hi";
+        $image_path=$employee->image;
+        if($request->hasFile('image')){
+            $image = $request->file('image');
+            $image_path =$image->store('images','employees_upload');
+        }
+        $request_data = $request->all();
+        $request_data['image'] = $image_path;
+        $employee->update($request_data);
+        return to_route('employees.show', $employee);
+
     }
 
     /**

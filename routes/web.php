@@ -112,7 +112,11 @@ Route::delete("/students/{id}", [StudentController::class, 'destroy'])
 
 
 use App\Http\Controllers\EmployeeController;
-Route::resource('employees', EmployeeController::class);
+Route::resource('employees', EmployeeController::class)
+    ->where(['employee'=> '[0-9]+']);;
+    # we can add pattern on resource
+
+
 use App\Http\Controllers\DepartmentController;
 Route::resource('departments', DepartmentController::class);
 
