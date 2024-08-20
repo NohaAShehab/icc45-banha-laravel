@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -23,6 +24,11 @@ class RegisterController extends Controller
 
     use RegistersUsers;
 
+    # override 0--> show register from
+
+
+
+
     /**
      * Where to redirect users after registration.
      *
@@ -39,6 +45,10 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
+    function showRegistrationForm()
+    {
+        return view('auth.registerwithimage');
+    }
 
     /**
      * Get a validator for an incoming registration request.
@@ -51,7 +61,8 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:2', 'confirmed'],
+            'image'=>'mimes:jpeg,jpg,png,gif',
         ]);
     }
 
@@ -63,10 +74,20 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $image_path=null;
+        # upload image
+        if(array_key_exists('image',$data )){
+            /// add steps of uploading images
+            $image=  $data['image'];
+            $image_path = $image->store('images', 'users_images');
+
+        }
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'image'=>$image_path
         ]);
     }
 }

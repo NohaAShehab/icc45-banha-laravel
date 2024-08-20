@@ -15,6 +15,8 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+{{--                      @dump(\Illuminate\Support\Facades\Auth::user())--}}
+                    <img src="{{asset('images/users/'.Auth::user()->image)}}">
                 </div>
             </div>
         </div>
