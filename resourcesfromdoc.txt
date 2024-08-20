@@ -238,6 +238,12 @@ php artisan make:request StoreManagerRequest
 = restrict managers names not be manager , boss , hero,
 https://laravel.com/docs/11.x/validation#using-rule-objects
 
+######### implement login and registeration
+authentication ?? --> user is authenticated --> username, password
+
+# registeration and login
+# install package allow this functionality
+
 
 
 
