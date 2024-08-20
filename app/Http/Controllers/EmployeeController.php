@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Employee;
 use App\Models\Department;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 
 class EmployeeController extends Controller
 {
@@ -13,9 +14,8 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        //
-
-        $employees = Employee::all();
+//        $employees = Employee::all();
+        $employees = Employee::paginate(2);
         return view('employees.index', compact('employees'));
     }
 
@@ -41,10 +41,7 @@ class EmployeeController extends Controller
             'salary' => 'required',
             'gender' => 'required',
         ]);
-
-
         $image_path=null;
-
         ### save image
         if($request->hasFile('image')){
             $image = $request->file('image');
@@ -54,10 +51,12 @@ class EmployeeController extends Controller
 
         }
 
-        $employee = Employee::create($request->all());
-        $employee->image = $image_path;
-        $employee->save();
-//        return to_route('employees.index')->with('success', 'Employee has been created');
+        $request_data = $request->all();
+        $request_data['image'] = $image_path;
+        $employee= Employee::create($request_data);
+//        $employee = Employee::create($request->all());
+//        $employee->image = $image_path;
+//        $employee->save();
         return to_route('employees.show', $employee);
 
 

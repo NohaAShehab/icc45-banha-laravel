@@ -36,4 +36,5 @@
         @endforeach
 
     </table>
+    {{$employees->links()}}
 @endsection
