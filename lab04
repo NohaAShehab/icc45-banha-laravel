@@ -1,0 +1,23 @@
+1- add image to the post
+2- create class for StorePostRequest , UpdatePostRequest and use it in
+the posts controller
+3- create rule that checks that post title doesn't contain post key word
+---post----
+
+4-Make our post have slug , using this package ( the slug will be
+generated from the post title , users aren’t allowed to fill slug
+or send it in the request , search for $request->validated()or
+$request->only()
+(Read the package documentation carefully )
+https://github.com/cviebrock/eloquent-sluggable
+Title_Example     Slug Example
+Hello Laravel     hello-laravel
+
+- Show the slug column In Index page
+
+
+Use php artisan ui:auth , to scaffold the auth page
+
+- Modify on the current navbar , and make it use the laravel
+default auth navbar , and also we need the link to All Posts
+(Do whatever you see suits the case)
