@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\ManagerController;
 
 Route::get('/',
     # this is my controller function
@@ -97,7 +101,7 @@ Route::get('/home', function (){
 
 
 # use controller function
-use App\Http\Controllers\StudentController;
+
                             # scope binding
 Route::get("/students",[StudentController::class,'index' ])->name('students.index');
 Route::post("/students",[StudentController::class, 'store'] )->name('students.store');
@@ -111,15 +115,17 @@ Route::delete("/students/{id}", [StudentController::class, 'destroy'])
     ->name('students.destroy')->where('id', '[0-9]+');
 
 
-use App\Http\Controllers\EmployeeController;
+
 Route::resource('employees', EmployeeController::class)
     ->where(['employee'=> '[0-9]+']);;
     # we can add pattern on resource
 
 
-use App\Http\Controllers\DepartmentController;
+
 Route::resource('departments', DepartmentController::class);
 
+Route::resource('managers', ManagerController::class)
+    ->where(['manager'=> '[0-9]+']);;
 
 
 

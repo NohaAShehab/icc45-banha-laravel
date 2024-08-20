@@ -224,6 +224,28 @@ why we used resource controller ?
 all operations on the request will be seperated in another file --->
  associated with request .. update, store
 
+************************************************************
+## use customized requests --> with managers resource
+
+php artisan make:model Manager -mcr
+
+## validation on update. store
+--> make request class for ?? store , update
+php artisan make:request StoreManagerRequest
+
+
+
+
+# define new rule
+
+
+
+
+
+
+
+
+
 
 
 

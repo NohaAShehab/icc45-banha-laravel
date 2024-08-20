@@ -61,7 +61,15 @@ return [
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
             'throw' => false,
+        ],
+        'managers_upload'=>[
+            'driver'=>'local',
+            'root' => public_path('images/managers'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+            'throw' => false,
         ]
+
 
     ],
 
