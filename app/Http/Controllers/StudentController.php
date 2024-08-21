@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreStudentRequest;
+# use current logged in user 
+use Illuminate\Support\Facades\Auth;
+
 
 class StudentController extends Controller
 {
@@ -31,9 +34,14 @@ class StudentController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(StoreStudentRequest $request)
-    {
+    {   
+
+        
+        # get current logged in user on system 
+        // dd(Auth::user());
+        // dd(Auth::id());
         //
-        dd($_POST,$request);
+        // dd($_POST,$request);
         // dd("Here");
         $image_path = null;
    
@@ -42,6 +50,7 @@ class StudentController extends Controller
             $image_path = $image->store("images", 'student_images');
         }
         $request_data = $request->all();
+        $request_data['creator_id']= Auth::id();
         $request_data['image']= $image_path;
         // dd($request_data);
         $student = Student::create($request_data);

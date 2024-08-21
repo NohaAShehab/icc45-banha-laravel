@@ -29,7 +29,7 @@ class StoreStudentRequest extends FormRequest
                 'min:3',
 
             ],
-            // 'email'=>'required|unique:students,email',
+            'email'=>'required|unique:students,email',
             // 'image'=>'mimes:jpeg,jpg,png,gif',
             'gender'=>'required',
             'grade'=>'required|numeric',

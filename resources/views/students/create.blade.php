@@ -1,15 +1,16 @@
 @extends('layouts.app')
 
 @section('title')
-    All managers
+Add student
 @endsection
 
 @section('content')
-    <h1> Add new manager </h1>
+    <h1> Add new Students </h1>
 
 
 
     <form action="{{route('students.store')}}" method="post" enctype="multipart/form-data">
+        @csrf
         <div class="mb-3">
             <label  class="form-label">Name</label>
             <input type="text" name="name" value="{{ old('name') }}"

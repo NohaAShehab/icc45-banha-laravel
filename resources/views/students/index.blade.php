@@ -5,6 +5,13 @@
 @endsection
 
 @section('content')
+@auth
+    <h1> {{Auth::user()->name}} </h1>
+@endauth
+ 
+
+    
+
     <a class='btn btn-primary' href="{{route('students.create')}}"> Add new Student </a>
 
     @if(session("success"))

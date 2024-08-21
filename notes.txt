@@ -1,2 +1,10 @@
 1- middlewares
 https://laravel.com/docs/11.x/middleware#manually-managing-laravels-default-global-middleware
+
+
+
+add creator_field to the student model --> 
+add logged_in user as a student creator 
+
+---> goto the migrations 
+    00> create new migration file --> used to add column --> creator to the student 
