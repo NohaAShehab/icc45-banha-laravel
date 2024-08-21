@@ -15,6 +15,17 @@
             <p class="card-text"> {{$student->department ? $student->department->name: "None" }}</p>
             <a href="{{route('students.index')}}" class="btn btn-primary">Back to all students</a>
         </div>
+
+        <form method='post' action="{{route('students.destroy', $student)}}">
+                        @csrf 
+                        @method('delete') 
+
+                        <input type='submit' class='btn btn-danger' onclick="return confirm('are you sure do you want to delete')"
+                            value='Delete'
+                        >
+
+
+                    </form> 
     </div>
 
 

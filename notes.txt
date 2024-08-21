@@ -24,3 +24,5 @@ using gates in blade
 https://laravel.com/docs/11.x/authorization#via-blade-templates
 
 
+use gates in controller 
+

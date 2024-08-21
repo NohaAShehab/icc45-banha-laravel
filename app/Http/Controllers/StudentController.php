@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StoreStudentRequest;
 # use current logged in user 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
+
 
 
 class StudentController extends Controller
@@ -91,14 +93,24 @@ class StudentController extends Controller
     {
         //
 
-        if($student->creator_id === Auth::id()){
+        // if($student->creator_id === Auth::id()){
         
-            $student->delete();
-            return to_route("students.index")->with("success", "Student deleted successfully");
-        }
-        else{
-            return to_route("students.index")->with("error", "You are not the owner of this student to delete it ");
+        //     $student->delete();
+        //     return to_route("students.index")->with("success", "Student deleted successfully");
+        // }
+        // else{
+        //     return to_route("students.index")->with("error", "You are not the owner of this student to delete it ");
 
+        // }
+
+        if (! Gate::allows('delete-student', $student)) {
+            abort(403);
+            # you are not authorized to do this action 
         }
+
+        $student->delete();
+        return to_route("students.index")->with("success", "Student deleted successfully");
+
+
     }
 }
