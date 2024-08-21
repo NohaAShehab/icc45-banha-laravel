@@ -90,7 +90,15 @@ class StudentController extends Controller
     public function destroy(Student $student)
     {
         //
-        $student->delete();
-        return to_route("students.index")->with("success", "Student deleted successfully");
+
+        if($student->creator_id === Auth::id()){
+        
+            $student->delete();
+            return to_route("students.index")->with("success", "Student deleted successfully");
+        }
+        else{
+            return to_route("students.index")->with("error", "You are not the owner of this student to delete it ");
+
+        }
     }
 }

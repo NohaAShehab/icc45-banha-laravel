@@ -22,6 +22,14 @@
     @endif
 
 
+    @if(session("error"))
+        <div class='alert alert-danger'> 
+
+            {{session("error")}}
+        </div>
+    @endif
+
+
     <table class="table">
         <tr> <th>ID</th> <th>Name</th> <th>Email</th> <th>Image</th> <th> Show</th></tr>
         @foreach($students as $std)
