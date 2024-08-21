@@ -11,7 +11,15 @@ class StoreStudentRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true;
+        # only authenicated users can create students 
+        # user logged in 
+        // return true;
+        # get loginin user 
+        if($this->user()){
+            return true;
+        }
+        return false;
+
     }
 
     /**

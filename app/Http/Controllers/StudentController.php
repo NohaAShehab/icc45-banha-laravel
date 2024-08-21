@@ -46,7 +46,8 @@ class StudentController extends Controller
         // dd($_POST,$request);
         // dd("Here");
         $image_path = null;
-   
+        // dd($request->user());
+
         if($request->hasfile('image')){
             $image = $request->image;
             $image_path = $image->store("images", 'student_images');

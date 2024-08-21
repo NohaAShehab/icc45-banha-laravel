@@ -29,3 +29,25 @@ use gates in controller
 
 
 ################3 restrict --> owner can only update post >>> using policies 
+https://laravel.com/docs/11.x/authorization#creating-policies
+
+
+####################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
