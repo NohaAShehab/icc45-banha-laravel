@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    All managers
+    Edit Student 
 @endsection
 
 @section('content')
@@ -9,11 +9,12 @@
 
 
 
-    <form action="{{route('students.store')}}" method="post" enctype="multipart/form-data">
+    <form action="{{route('students.update', $student)}}" method="post" enctype="multipart/form-data">
         @csrf
+        @method('put')
         <div class="mb-3">
             <label  class="form-label">Name</label>
-            <input type="text" name="name" value="{{ old('name') }}"
+            <input type="text" name="name" value="{{ $student->name }}"
                    class="form-control"  aria-describedby="emailHelp">
             @error('name')
             <div class="alert alert-danger">{{ $message }}</div>
@@ -22,7 +23,7 @@
 
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" name="email" value="{{ old('email') }}"
+            <input type="email" name="email"  value="{{ $student->email }}"
                    class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             @error('email')
@@ -36,11 +37,12 @@
             @error('image')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
+            <img src="{{asset('images/students/'.$student->image)}}"> 
         </div>
 
         <div class="mb-3">
             <label  class="form-label">grade</label>
-            <input type="number" name="grade" value="{{ old('grade') }}"
+            <input type="number" name="grade" value="{{ $student->grade }}"
                    class="form-control"  aria-describedby="emailHelp">
             @error('grade')
             <div class="alert alert-danger">{{ $message }}</div>

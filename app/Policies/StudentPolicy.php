@@ -38,6 +38,10 @@ class StudentPolicy
     public function update(User $user, Student $student): bool
     {
         //
+
+        # when user can update ??
+        # or user->role=='admin'
+        return $user->id === $student->creator_id;
     }
 
     /**

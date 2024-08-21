@@ -26,3 +26,6 @@ https://laravel.com/docs/11.x/authorization#via-blade-templates
 
 use gates in controller 
 
+
+
+################3 restrict --> owner can only update post >>> using policies 

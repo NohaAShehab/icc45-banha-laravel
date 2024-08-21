@@ -8,7 +8,7 @@ use App\Http\Requests\StoreStudentRequest;
 # use current logged in user 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
-
+use App\Http\Requests\UpdateStudentRequest;
 
 
 class StudentController extends Controller
@@ -76,14 +76,34 @@ class StudentController extends Controller
     public function edit(Student $student)
     {
         //
+        return view("students.edit", ["student"=>$student]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Student $student)
+    public function update(UpdateStudentRequest $request, Student $student)
     {
+        
+        # request object contains current logged in user 
+
+        // dd($request->user());
         //
+
+        if($request->user()->cannot('update', $student)){
+                abort(403);
+        }
+        $image_path = $student->image;
+   
+        if($request->hasfile('image')){
+            $image = $request->image;
+            $image_path = $image->store("images", 'student_images');
+        }
+        $request_data = $request->all();
+        $request_data['creator_id']= Auth::id();
+        $request_data['image']= $image_path;
+        $student->update($request_data);
+        return to_route("students.index");
     }
 
     /**

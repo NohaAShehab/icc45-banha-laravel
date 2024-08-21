@@ -31,7 +31,8 @@
 
 
     <table class="table">
-        <tr> <th>ID</th> <th>Name</th> <th>Email</th> <th>Image</th> <th> Show</th> <th>Delete </th> </tr>
+        <tr> <th>ID</th> <th>Name</th> <th>Email</th> <th>Image</th> <th> Show</th>
+        <th> Edit </th> <th>Delete </th> </tr>
         @foreach($students as $std)
             <tr>
                 <td>{{$std['id']}}</td>
@@ -39,7 +40,7 @@
                 <td>{{$std['email']}}</td>
                 <td>{{$std['image']}}</td>
                 <td> <a href="{{route('students.show', $std['id'])}}" class="btn btn-primary"> Show </a></td>
-                
+                <td> <a href="{{route('students.edit', $std['id'])}}" class="btn btn-warning"> Edit </a></td>
                 <td> 
                 @can('delete-student', $std)
                     <form method='post' action="{{route('students.destroy', $std)}}">
@@ -52,6 +53,8 @@
 
 
                     </form>   
+                @else 
+                    <p> Un authorized action </p>
                 @endcan
                    
 

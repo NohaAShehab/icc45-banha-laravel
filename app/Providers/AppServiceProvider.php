@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Gate;
 use App\Models\Student;
 use App\Models\User;
+use App\Policies\StudentPolicy;
+
+
 
 # this is the entry point for your configuration 
 
@@ -35,6 +38,11 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('delete-student', function (User $user, Student $student) {
             return $user->id === $student->creator_id;
         });
+
+        # define policies for working on Student model 
+        Gate::policy(Student::class, StudentPolicy::class);
+
+
 
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateStudentRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class UpdateStudentRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,6 +24,20 @@ class UpdateStudentRequest extends FormRequest
     {
         return [
             //
+
+            'name'=>[
+                'required',
+                'min:3',
+
+            ],
+            'email'=>[
+                'required',
+                Rule::unique('students')->ignore($this->student),
+            ],
+            // 'image'=>'mimes:jpeg,jpg,png,gif',
+            'gender'=>'required',
+            'grade'=>'required|numeric',
+        
         ];
     }
 }
