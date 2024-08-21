@@ -36,6 +36,29 @@ https://laravel.com/docs/11.x/authorization#creating-policies
 
 
 
+### using apis in laravel 
+laravel automatically serilaize model objects to pure json 
+
+what's rest apis 
+https://restfulapi.net/
+
+
+# install package --> allows you to create apis 
+https://laravel.com/docs/11.x/routing#api-routes
+php artisan install:api
+
+
+
+
+
+
+
+
+# login with github  (login with social media )
+
+
+
+
 
 
 

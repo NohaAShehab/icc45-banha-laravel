@@ -13,6 +13,14 @@ use App\Http\Requests\UpdateStudentRequest;
 
 class StudentController extends Controller
 {
+
+    # use middleware auth 
+
+    function __construct(){
+        $this->middleware('auth')->except(['index']);
+    }
+
+
     /**
      * Display a listing of the resource.
      */
@@ -21,6 +29,7 @@ class StudentController extends Controller
         //
         $students = Student::all();
        return view("students.index", ["students"=>$students]);
+        // return $students;
     }
 
     /**
@@ -68,7 +77,9 @@ class StudentController extends Controller
     public function show(Student $student)
     {
         //
-        return view("students.show", ['student'=>$student]);
+        // return view("students.show", ['student'=>$student]);
+        return [$student];
+
     }
 
     /**
