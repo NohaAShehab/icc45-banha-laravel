@@ -7,7 +7,7 @@ use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
-
+use App\Http\Resources\StudentResource;
 
 class StudentController extends Controller
 {
@@ -16,8 +16,11 @@ class StudentController extends Controller
      */
     public function index()
     {
+
+        $students=  Student::all();
         //
-        return Student::all();
+        // return Student::all();
+        return StudentResource::collection($students);
     }
 
     /**
@@ -64,10 +67,10 @@ class StudentController extends Controller
             $image_path = $image->store("images", 'student_images');
         }
         $request_data = $request->all();
-        $request_data['image']= asset('images/students/'.$image_path);
-        // $request_data['image']= $image_path;
+        // $request_data['image']= asset('images/students/'.$image_path);
+        $request_data['image']= $image_path;
         $student = Student::create($request_data);
-        return $student;
+        return new StudentResource( $student);
     }
 
     /**
@@ -76,7 +79,8 @@ class StudentController extends Controller
     public function show(Student $student)
     {
         //
-        return $student;
+       // return $student;
+       return new StudentResource($student);
     }
 
     /**
@@ -85,6 +89,44 @@ class StudentController extends Controller
     public function update(Request $request, Student $student)
     {
         //
+
+        // return $request->all();
+
+        $std_validator = Validator::make($request->all(),[
+            'name'=>[
+                'required',
+                'min:3',
+
+            ],
+            'email'=>["required", "email",
+                    Rule::unique('students')->ignore($student)],
+            'image'=>'mimes:jpeg,jpg,png,gif',
+            'gender'=>['required', Rule::in(['male', 'female'])],
+            'grade'=>'required|numeric',
+        ]);
+
+        if($std_validator->fails()){
+            return response()->json(
+                [
+                    'validation_errors'=> $std_validator->errors(),
+                    "message"=> "please review your inputs",
+                    'typealert'=> 'danger'
+                ], 422
+            );
+        }
+
+        $image_path = $student->image;
+        if($request->hasfile('image')){
+            $image = $request->image;
+            $image_path = $image->store("images", 'student_images');
+        }
+        $request_data = $request->all();
+        // $request_data['image']= asset('images/students/'.$image_path);
+        $request_data['image']= $image_path;
+        $student->update($request_data);
+        return new StudentResource($student);
+
+
     }
 
     /**

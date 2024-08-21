@@ -1,0 +1,12 @@
+1-modify posts table to have post owner 00> owner is the current logged_in user 
+
+2- use gates to allow the post owner to modify post
+
+3- use policies to allow the post owner to delete the post 
+
+4- run php artisan install:api 
+
+5- allow only logged in users to show the post details 
+
+6- create apis for your posts. create, update, delete , show 
+    /api/posts/  
