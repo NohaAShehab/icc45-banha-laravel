@@ -99,9 +99,9 @@ Route::get('/home', function (){
 # use controller function
 use App\Http\Controllers\StudentController;
                             # scope binding
-Route::get("/students",[StudentController::class,'index' ])->name('students.index');
-Route::get('/students/{id}', [StudentController::class, 'show'])
-    ->name("students.show")->where('id', '[0-9]+');
+
+
+Route::resource("/students", StudentController::class)->where(['student'=> '[0-9]+']);
 
 
 
@@ -109,3 +109,10 @@ Route::get('/students/{id}', [StudentController::class, 'show'])
 
 
 
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

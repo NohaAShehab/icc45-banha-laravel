@@ -1,0 +1,2 @@
+1- middlewares
+https://laravel.com/docs/11.x/middleware#manually-managing-laravels-default-global-middleware
