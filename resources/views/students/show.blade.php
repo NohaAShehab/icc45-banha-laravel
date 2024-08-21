@@ -8,6 +8,7 @@
 
     <div class="card" style="width: 18rem;">
         <img src="{{asset('images/students/'.$student->image)}}" class="card-img-top" alt="...">
+        <img src ="{{$student->image}}" width=100 height=100> 
         <div class="card-body">
             <h5 class="card-title">{{$student->name}}</h5>
             <p class="card-text"> {{$student->email}}</p>

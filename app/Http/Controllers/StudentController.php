@@ -16,9 +16,9 @@ class StudentController extends Controller
 
     # use middleware auth 
 
-    function __construct(){
-        $this->middleware('auth')->except(['index']);
-    }
+    // function __construct(){
+    //     $this->middleware('auth')->except(['index']);
+    // }
 
 
     /**
@@ -77,8 +77,8 @@ class StudentController extends Controller
     public function show(Student $student)
     {
         //
-        // return view("students.show", ['student'=>$student]);
-        return [$student];
+        return view("students.show", ['student'=>$student]);
+        // return [$student];
 
     }
 

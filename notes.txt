@@ -48,7 +48,11 @@ https://laravel.com/docs/11.x/routing#api-routes
 php artisan install:api
 
 
+----------- I need to create api to list all students 
+once I wrote my route in api.php ==> laravel in any routes in api.php file --> will have the prefix api
 
+reponse status codes 
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
 
 
 
