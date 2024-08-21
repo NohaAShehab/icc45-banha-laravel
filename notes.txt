@@ -8,3 +8,19 @@ add logged_in user as a student creator
 
 ---> goto the migrations 
     00> create new migration file --> used to add column --> creator to the student 
+
+
+###################### Gates and policies
+
+Authorization --> authenticated users have the privileges to do this or not 
+
+I need to create a gate- - > to confirm if I am the creator of the student or not 
+
+
+create gates 
+
+
+using gates in blade 
+https://laravel.com/docs/11.x/authorization#via-blade-templates
+
+

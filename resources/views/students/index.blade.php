@@ -31,7 +31,7 @@
 
 
     <table class="table">
-        <tr> <th>ID</th> <th>Name</th> <th>Email</th> <th>Image</th> <th> Show</th></tr>
+        <tr> <th>ID</th> <th>Name</th> <th>Email</th> <th>Image</th> <th> Show</th> <th>Delete </th> </tr>
         @foreach($students as $std)
             <tr>
                 <td>{{$std['id']}}</td>
@@ -39,7 +39,9 @@
                 <td>{{$std['email']}}</td>
                 <td>{{$std['image']}}</td>
                 <td> <a href="{{route('students.show', $std['id'])}}" class="btn btn-primary"> Show </a></td>
+                
                 <td> 
+                @can('delete-student', $std)
                     <form method='post' action="{{route('students.destroy', $std)}}">
                         @csrf 
                         @method('delete') 
@@ -49,7 +51,9 @@
                         >
 
 
-                    </form>    
+                    </form>   
+                @endcan
+                   
 
                 </td>
             </tr>
