@@ -65,6 +65,7 @@
                             </div>
                         </div>
                     </form>
+                    <a href="{{route("auth.github")}}" class="btn btn-dark">Login with Github </a>
                 </div>
             </div>
         </div>

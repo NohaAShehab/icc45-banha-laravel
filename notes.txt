@@ -75,6 +75,30 @@ https://laravel.com/docs/11.x/sanctum#mobile-application-authentication
 
 
 
+########### login with social media ===> login with github
+
+OAuth2
+https://auth0.com/intro-to-iam/what-is-oauth-2
+authentication --> username, password
+authorization --> authenticated user can do what ??
+
+OAuth2 -> is authorization
+
+
+to implement login with github
+package socalite
+https://laravel.com/docs/11.x/socialite#main-content
+composer require laravel/socialite
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -65,3 +65,4 @@ Route::post("/sanctum/logout", function (Request $request) {
     $request->user()->tokens()->delete();
     return response()->json(['message' => 'Logged out']);
 })->middleware("auth:sanctum");
+

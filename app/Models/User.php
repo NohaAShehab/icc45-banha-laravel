@@ -12,7 +12,7 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
     use HasApiTokens;
 
-   
+
     /**
      * The attributes that are mass assignable.
      *
@@ -22,6 +22,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'github_id',
+        'github_token',
+        'github_refresh_token',
     ];
 
     /**
