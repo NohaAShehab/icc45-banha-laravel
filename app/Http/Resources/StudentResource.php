@@ -22,7 +22,15 @@ class StudentResource extends JsonResource
             "image"=> asset("images/students/".$this->image),
             "std_gender"=>$this->gender,
             "created_at"=>$this->created_at,
-            "updated_at"=>$this->updated_at
+            "updated_at"=>$this->updated_at,
+//            "owner"=>[
+//                'name'=>$this->creator ? $this->creator->name : "not found",
+//                "id"=>$this->creator_id,
+//                "info"=>$this->creator
+//            ]
+            "student_creator"=> $this->creator ? new CreatorResource($this->creator): null
+//            "creator_id"=> $this->creator_id,
+//            "creator_name"=>$this->creator ? $this->creator->name: "No info"
         ];
     }
 }
