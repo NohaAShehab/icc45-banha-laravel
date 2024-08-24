@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreStudentRequest;
-# use current logged in user 
+# use current logged in user
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\UpdateStudentRequest;
@@ -14,11 +14,11 @@ use App\Http\Requests\UpdateStudentRequest;
 class StudentController extends Controller
 {
 
-    # use middleware auth 
+    # use middleware auth
 
-    // function __construct(){
-    //     $this->middleware('auth')->except(['index']);
-    // }
+     function __construct(){
+//         $this->middleware('auth')->except(['index']);
+     }
 
 
     /**
@@ -45,10 +45,10 @@ class StudentController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(StoreStudentRequest $request)
-    {   
+    {
 
-        
-        # get current logged in user on system 
+
+        # get current logged in user on system
         // dd(Auth::user());
         // dd(Auth::id());
         //
@@ -96,8 +96,8 @@ class StudentController extends Controller
      */
     public function update(UpdateStudentRequest $request, Student $student)
     {
-        
-        # request object contains current logged in user 
+
+        # request object contains current logged in user
 
         // dd($request->user());
         //
@@ -106,7 +106,7 @@ class StudentController extends Controller
                 abort(403);
         }
         $image_path = $student->image;
-   
+
         if($request->hasfile('image')){
             $image = $request->image;
             $image_path = $image->store("images", 'student_images');
@@ -126,7 +126,7 @@ class StudentController extends Controller
         //
 
         // if($student->creator_id === Auth::id()){
-        
+
         //     $student->delete();
         //     return to_route("students.index")->with("success", "Student deleted successfully");
         // }
@@ -137,7 +137,7 @@ class StudentController extends Controller
 
         if (! Gate::allows('delete-student', $student)) {
             abort(403);
-            # you are not authorized to do this action 
+            # you are not authorized to do this action
         }
 
         $student->delete();

@@ -9,4 +9,8 @@ class Student extends Model
 {
     use HasFactory;
     protected $fillable = ['name', 'grade', 'email', 'gender', 'image','creator_id'];
+
+    function creator(){
+        return $this->belongsTo(User::class);
+    }
 }

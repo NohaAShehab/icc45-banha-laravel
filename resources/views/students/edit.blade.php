@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Edit Student 
+    Edit Student
 @endsection
 
 @section('content')
@@ -37,7 +37,7 @@
             @error('image')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
-            <img src="{{asset('images/students/'.$student->image)}}"> 
+            <img src="{{asset('images/students/'.$student->image)}} " width="100" height="100">
         </div>
 
         <div class="mb-3">

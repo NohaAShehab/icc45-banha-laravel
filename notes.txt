@@ -3,32 +3,32 @@ https://laravel.com/docs/11.x/middleware#manually-managing-laravels-default-glob
 
 
 
-add creator_field to the student model --> 
-add logged_in user as a student creator 
+add creator_field to the student model -->
+add logged_in user as a student creator
 
----> goto the migrations 
-    00> create new migration file --> used to add column --> creator to the student 
+---> goto the migrations
+    00> create new migration file --> used to add column --> creator to the student
 
 
 ###################### Gates and policies
 
-Authorization --> authenticated users have the privileges to do this or not 
+Authorization --> authenticated users have the privileges to do this or not
 
-I need to create a gate- - > to confirm if I am the creator of the student or not 
-
-
-create gates 
+I need to create a gate- - > to confirm if I am the creator of the student or not
 
 
-using gates in blade 
+create gates
+
+
+using gates in blade
 https://laravel.com/docs/11.x/authorization#via-blade-templates
 
 
-use gates in controller 
+use gates in controller
 
 
 
-################3 restrict --> owner can only update post >>> using policies 
+################3 restrict --> owner can only update post >>> using policies
 https://laravel.com/docs/11.x/authorization#creating-policies
 
 
@@ -36,27 +36,49 @@ https://laravel.com/docs/11.x/authorization#creating-policies
 
 
 
-### using apis in laravel 
-laravel automatically serilaize model objects to pure json 
+### using apis in laravel
+laravel automatically serilaize model objects to pure json
 
-what's rest apis 
+what's rest apis
 https://restfulapi.net/
 
 
-# install package --> allows you to create apis 
+# install package --> allows you to create apis
 https://laravel.com/docs/11.x/routing#api-routes
 php artisan install:api
+# install package --> sanctum ? ==> package used to authenticate apis
 
 
------------ I need to create api to list all students 
+----------- I need to create api to list all students
 once I wrote my route in api.php ==> laravel in any routes in api.php file --> will have the prefix api
 
-reponse status codes 
+reponse status codes
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
 
 
 
 ##### use api  resource collections ??
+
+
+
+##### send id of the user with student -->
+Authenticate apis ??
+
+-->middleware  ---> auth
+# install package --> sanctum ? ==> package used to authenticate apis
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

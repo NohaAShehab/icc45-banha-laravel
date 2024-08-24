@@ -5,12 +5,19 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use App\Http\Resources\StudentResource;
 
 class StudentController extends Controller
 {
+
+    function __construct()
+    {
+        $this->middleware("auth:sanctum")->only(["store", "update", "destroy"]);
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -18,8 +25,6 @@ class StudentController extends Controller
     {
 
         $students=  Student::all();
-        //
-        // return Student::all();
         return StudentResource::collection($students);
     }
 
@@ -29,7 +34,7 @@ class StudentController extends Controller
     public function store(Request $request)
     {
 
-
+        # only authenticated users can store new student
 
             # generate validator object ??
 
@@ -37,7 +42,6 @@ class StudentController extends Controller
                 'name'=>[
                     'required',
                     'min:3',
-    
                 ],
                 'email'=>'required|unique:students,email',
                 'image'=>'mimes:jpeg,jpg,png,gif',
@@ -55,20 +59,17 @@ class StudentController extends Controller
                 );
             }
 
-        // return $request->all();
-        //
-        # create new object 
-
         $image_path = null;
-        // dd($request->user());
 
         if($request->hasfile('image')){
             $image = $request->image;
             $image_path = $image->store("images", 'student_images');
         }
         $request_data = $request->all();
-        // $request_data['image']= asset('images/students/'.$image_path);
+//        return $request_data;
+//        return Auth::id();
         $request_data['image']= $image_path;
+        $request_data['creator_id'] = Auth::id();
         $student = Student::create($request_data);
         return new StudentResource( $student);
     }
@@ -78,9 +79,16 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        //
-       // return $student;
-       return new StudentResource($student);
+//        dd($student);
+//        return $student;
+        return new StudentResource($student);
+//        if($student) {
+//            return new StudentResource($student);
+//        }
+//        return response()->json([
+//            'message' => 'Student not found',
+//
+//        ],204);
     }
 
     /**
@@ -136,6 +144,9 @@ class StudentController extends Controller
     {
         //
         $student->delete();
-        return 'deleted';
+//        return 'deleted';
+        return response()->json([
+            "message"=>"object deleted successfully"
+        ],204);
     }
 }

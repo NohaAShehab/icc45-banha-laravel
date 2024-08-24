@@ -15,12 +15,14 @@ class StudentResource extends JsonResource
     public function toArray(Request $request): array
     {
         // return parent::toArray($request);
-        # reformat data before sending it to the client 
+        # reformat data before sending it to the client
         return [
             "id"=>$this->id,
             "name"=>$this->name,
             "image"=> asset("images/students/".$this->image),
-            "std_gender"=>$this->gender
+            "std_gender"=>$this->gender,
+            "created_at"=>$this->created_at,
+            "updated_at"=>$this->updated_at
         ];
     }
 }
