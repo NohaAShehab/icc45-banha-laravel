@@ -32,6 +32,8 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 # we generate bearer token ==> that can be used later while sending request
+use Illuminate\Support\Facades\Auth;
+
 Route::post('/sanctum/token', function (Request $request) {
     $request->validate([
         'email' => 'required|email',
@@ -51,3 +53,15 @@ Route::post('/sanctum/token', function (Request $request) {
     # generate new token ? associated with user ??? --> saved in table personal_access_tokens
     return $user->createToken($request->device_name)->plainTextToken;
 });
+
+
+Route::post("/sanctum/logout", function (Request $request) {
+   # delete token ?
+//    return "found";
+//   return  Auth::id();
+    # remove current token
+//    $request->user()->currentAccessToken()->delete();
+    # remove all token
+    $request->user()->tokens()->delete();
+    return response()->json(['message' => 'Logged out']);
+})->middleware("auth:sanctum");

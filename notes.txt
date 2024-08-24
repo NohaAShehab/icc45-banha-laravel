@@ -66,6 +66,12 @@ Authenticate apis ??
 
 -->middleware  ---> auth
 # install package --> sanctum ? ==> package used to authenticate apis
+https://laravel.com/docs/11.x/sanctum#mobile-application-authentication
+
+---> to use sanctum token --> in postman --> request header  --> Authorization
+    Bearer token
+
+ ---> logout function ??
 
 
 
